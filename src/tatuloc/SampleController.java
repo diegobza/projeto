@@ -22,7 +22,7 @@ import javafx.scene.control.TextField;
  */
 public class SampleController implements Initializable {
     
- @FXML
+    @FXML
     private TextField tf_login;
     @FXML
     private Button bt_entrar;
@@ -59,10 +59,12 @@ public class SampleController implements Initializable {
     }
     @FXML
     private Button bt_sair;
+
     @FXML
     private void fechar() {
         System.exit(0);
     }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

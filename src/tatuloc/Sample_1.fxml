@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="100.0" minWidth="346.99998474121094" prefHeight="199.0000168945262" prefWidth="346.99998474121094" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="teladelogin.SampleController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="100.0" minWidth="346.99998474121094" prefHeight="199.0000168945262" prefWidth="346.99998474121094" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="teladelogin.SampleController" fx:controller="tatuloc.Sample_1Controller">
   <children>
     <Pane focusTraversable="false" layoutX="1.0" layoutY="-1.0" prefHeight="199.0" prefWidth="347.0" style="-fx-background-color:linear-gradient(to top,blue,aqua)&#10;&#10;">
       <children>
