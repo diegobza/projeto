@@ -5,10 +5,27 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200.0" prefWidth="320.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="tatuloc.SampleController" fx:controller="tatuloc.SampleController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="100.0" minWidth="346.99998474121094" prefHeight="199.0000168945262" prefWidth="346.99998474121094" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="tatuloc.SampleController">
   <children>
-    <Button fx:id="button" layoutX="126.0" layoutY="90.0" onAction="#handleButtonAction" text="CLIQUE!" />
-    <Label fx:id="label" layoutX="126.0" layoutY="120.0" minHeight="16.0" minWidth="69.0" />
+    <Pane focusTraversable="false" layoutX="0.0" layoutY="0.0" prefHeight="199.0" prefWidth="347.0" style="-fx-background-color:linear-gradient(to top,blue,aqua)&#10;&#10;">
+      <children>
+        <CubicCurve controlX1="-29.0" controlX2="-343.0" controlY1="-44.0" controlY2="206.0" endX="193.0" endY="190.0" fill="WHITE" focusTraversable="true" layoutX="146.0" layoutY="10.0" opacity="1.0" startX="-223.0" startY="-87.0" stroke="#66ffed" />
+      </children>
+    </Pane>
+    <CubicCurve controlX1="-29.0" controlX2="-343.0" controlY1="-44.0" controlY2="206.0" endX="193.0" endY="190.0" fill="WHITE" focusTraversable="false" layoutX="230.0" layoutY="85.0" opacity="1.0" rotate="180.0" smooth="true" startX="-223.0" startY="-87.0" stroke="#99ffda" strokeType="CENTERED" style="&#10;" visible="true" />
+    <Label fx:id="l_msg" alignment="CENTER" depthTest="INHERIT" layoutX="0.0" layoutY="114.0" mnemonicParsing="false" mouseTransparent="false" pickOnBounds="false" prefWidth="347.0" style="" text="" textAlignment="CENTER" textOverrun="ELLIPSIS" underline="false" />
+    <Label layoutX="43.0" layoutY="50.0" text="Login" textFill="BLACK">
+      <font>
+        <Font size="13.0" fx:id="x1" />
+      </font>
+    </Label>
+    <Label font="$x1" layoutX="41.0" layoutY="85.0" style="-fx-color: red" text="Senha" textFill="BLACK" />
+    <TextField id="usuario" fx:id="tf_login" layoutX="83.0" layoutY="48.0" onAction="#checarnome" prefWidth="200.0" style="" />
+    <PasswordField id="password" fx:id="pf_password" layoutX="83.0" layoutY="87.0" onAction="#checarnome" prefWidth="200.0" style="" />
+    <Button id="button" fx:id="bt_entrar" layoutX="187.0" layoutY="137.0" onAction="#checarnome" prefWidth="51.9998779296875" style="" text="Entrar" textFill="BLACK" />
+    <Button fx:id="bt_sair" layoutX="111.0" layoutY="137.0" mnemonicParsing="false" onAction="#fechar" prefWidth="52.0" style="" text="Sair" textFill="BLACK" textOverrun="ELLIPSIS" />
   </children>
 </AnchorPane>
