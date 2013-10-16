@@ -4,13 +4,18 @@
  */
 package tatuloc;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -45,11 +50,13 @@ public class TelaPrincipalController implements Initializable {
     private TreeView<String> tv_relatorios;
     @FXML
     private StackPane stackpane;
+    private Node pane_incial;
+    private Node pane_cadveiculo;
 
-    private void mudar(){
-        
+    private void mudar() {
     }
     // Connection c = ConnectionFactory.getConnection();  
+
     @FXML
     private void cadastrarse(ActionEvent event) {
         String SQL = "insert into veiculo(placa)values(?)";
@@ -60,8 +67,10 @@ public class TelaPrincipalController implements Initializable {
     }
 
     private void initMenuCadastro() {
+        final String CAD_VEIC = "Cad. Veículo";
+
         TreeItem<String> ti_root = new TreeItem<>("root");
-        TreeItem<String> ti_cadVeic = new TreeItem<>("Cad. Veículo");
+        TreeItem<String> ti_cadVeic = new TreeItem<>(CAD_VEIC);
         TreeItem<String> ti_cadMot = new TreeItem<>("Cad. Motorista");
 
         ti_root.getChildren().add(ti_cadVeic);
@@ -73,14 +82,26 @@ public class TelaPrincipalController implements Initializable {
         tv_cadastro.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
             @Override
             public void changed(ObservableValue<? extends TreeItem<String>> ov, TreeItem<String> t, TreeItem<String> tl) {
-                System.out.println(tl);
-                System.out.println("Menu: "+ tl.getValue());
+                System.out.println("Menu: " + tl.getValue());
+                switch (tl.getValue()) {
+                    case CAD_VEIC:
+                        int indice = stackpane.getChildren().indexOf(pane_cadveiculo);
+                        stackpane.getChildren().get(indice).toBack();
+                }
             }
         });
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        try {
+            pane_incial = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneCadVeiculo.fxml"));
+            pane_cadveiculo = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneInicial.fxml"));
+            stackpane.getChildren().add(pane_incial);
+            stackpane.getChildren().add(pane_cadveiculo);
+        } catch (IOException ex) {
+            System.out.println("Erro ao carregar os Panes");
+        }
         initMenuCadastro();
 
         TreeItem<String> root = new TreeItem<>("root");

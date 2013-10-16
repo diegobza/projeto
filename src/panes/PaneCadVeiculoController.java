@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package tatuloc;
+package panes;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -13,7 +13,7 @@ import javafx.fxml.Initializable;
  *
  * @author Dikson
  */
-public class CadVeiculoController implements Initializable {
+public class PaneCadVeiculoController implements Initializable {
 
     /**
      * Initializes the controller class.

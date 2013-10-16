@@ -91,7 +91,7 @@
         </Menu>
       </menus>
     </MenuBar>
-    <StackPane id="b_concluir" fx:id="stackpane" layoutX="163.0" layoutY="44.0" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color: white">
+    <StackPane id="b_concluir" fx:id="stackpane" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color: white" AnchorPane.bottomAnchor="32.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="144.0" AnchorPane.topAnchor="44.0">
       <effect>
         <DropShadow />
       </effect>
