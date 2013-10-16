@@ -14,6 +14,14 @@ import java.sql.SQLException;
  *
  * @author Dikson
  */
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+/**
+ *
+ * @author Dikson
+ */
 public class Consulta {
 
     private static Connection conn = null;
@@ -43,6 +51,38 @@ public class Consulta {
             }
 
             result = stmt.executeQuery();
+        } catch (SQLException ex) {
+            System.out.println("Erro de consulta SQL");
+        }
+
+        return result;
+    }
+    
+    public static int executeUpdate(String SQL, Object... param) {
+        if (conn == null) {
+            try {
+                conn = DriverManager.getConnection("jdbc:mysql://localhost/obdii?"
+                        + "user=root&password=dikson");
+
+            } catch (SQLException ex) {
+                System.out.println("Erro ao ser conectar ao MySQL.");
+            }
+        }
+
+        PreparedStatement stmt;
+        int result = 0;
+
+        try {
+            stmt = conn.prepareStatement(SQL);
+            System.out.println("Elementos: " + param.length);
+
+            for (int i = 0; i < param.length; i++) {
+                if (param[i] instanceof String) {
+                    stmt.setString(i + 1, (String) param[i]);
+                }
+            }
+
+            result = stmt.executeUpdate();
         } catch (SQLException ex) {
             System.out.println("Erro de consulta SQL");
         }

@@ -18,7 +18,7 @@ public class TatuLoc extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("telaprincipal.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("TelaPrincipal.fxml"));
         
         Scene scene = new Scene(root);
         stage.initStyle(StageStyle.TRANSPARENT);      
