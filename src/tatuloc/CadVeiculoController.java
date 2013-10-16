@@ -7,17 +7,13 @@ package tatuloc;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.fxml.FXML;
 
 /**
  * FXML Controller class
  *
  * @author Dikson
  */
-public class TelaprincipalController implements Initializable {
-    @FXML
-    private Button b_cadastro;
+public class CadVeiculoController implements Initializable {
 
     /**
      * Initializes the controller class.

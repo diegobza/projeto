@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="297.0" prefWidth="293.0" style="-fx-background-color:lightblue" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="tatuloc.CadVeiculoController">
+  <children>
+    <Label layoutX="47.0" layoutY="92.0" text="Nome" />
+    <Label layoutX="47.0" layoutY="136.0" text="Codigo" />
+    <TextField layoutX="47.0" layoutY="108.0" prefWidth="200.0" />
+    <TextField layoutX="47.0" layoutY="152.0" prefWidth="200.0" />
+  </children>
+</AnchorPane>
