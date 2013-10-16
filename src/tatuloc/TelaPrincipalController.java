@@ -17,6 +17,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.StackPane;
 
 /**
  *
@@ -35,14 +36,19 @@ public class TelaPrincipalController implements Initializable {
     @FXML
     private ListView l_view;
     @FXML
-    private TreeView<String> t_view;
+    private TreeView<String> tv_cadastro;
     @FXML
-    private TreeView<String> t_view1;
+    private TreeView<String> tv_veiculos;
     @FXML
-    private TreeView<String> t_view2;
+    private TreeView<String> tv_motoristas;
     @FXML
-    private TreeView<String> t_view3;
+    private TreeView<String> tv_relatorios;
+    @FXML
+    private StackPane stackpane;
 
+    private void mudar(){
+        
+    }
     // Connection c = ConnectionFactory.getConnection();  
     @FXML
     private void cadastrarse(ActionEvent event) {
@@ -53,22 +59,39 @@ public class TelaPrincipalController implements Initializable {
 
     }
 
+    private void initMenuCadastro() {
+        TreeItem<String> ti_root = new TreeItem<>("root");
+        TreeItem<String> ti_cadVeic = new TreeItem<>("Cad. Veículo");
+        TreeItem<String> ti_cadMot = new TreeItem<>("Cad. Motorista");
+
+        ti_root.getChildren().add(ti_cadVeic);
+        ti_root.getChildren().add(ti_cadMot);
+
+        tv_cadastro.setRoot(ti_root);
+        tv_cadastro.setShowRoot(false);
+
+        tv_cadastro.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
+            @Override
+            public void changed(ObservableValue<? extends TreeItem<String>> ov, TreeItem<String> t, TreeItem<String> tl) {
+                System.out.println(tl);
+                System.out.println("Menu: "+ tl.getValue());
+            }
+        });
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        initMenuCadastro();
 
-        TreeItem<String> root4 = new TreeItem<String>("root");
-        TreeItem<String> rootItem7 = new TreeItem<String>("Cad. Veículo");
-        TreeItem<String> rootItem8 = new TreeItem<String>("Cad. Motorista");
-        TreeItem<String> root = new TreeItem<String>("root");
-        TreeItem<String> rootItem1 = new TreeItem<String>("Veículos Ativos");
-        TreeItem<String> rootItem2 = new TreeItem<String>("Veículos Inativos");
-        TreeItem<String> root2 = new TreeItem<String>("root");
-        TreeItem<String> rootItem3 = new TreeItem<String>("Motoristas Operando");
-        TreeItem<String> rootItem4 = new TreeItem<String>("Motoristas Disponiveis");
-        TreeItem<String> root3 = new TreeItem<String>("root");
-        TreeItem<String> rootItem5 = new TreeItem<String>("Rel. Mot. Cadastrados");
-        TreeItem<String> rootItem6 = new TreeItem<String>("Quant. Veiculos");
+        TreeItem<String> root = new TreeItem<>("root");
+        TreeItem<String> rootItem1 = new TreeItem<>("Veículos Ativos");
+        TreeItem<String> rootItem2 = new TreeItem<>("Veículos Inativos");
+        TreeItem<String> root2 = new TreeItem<>("root");
+        TreeItem<String> rootItem3 = new TreeItem<>("Motoristas Operando");
+        TreeItem<String> rootItem4 = new TreeItem<>("Motoristas Disponiveis");
+        TreeItem<String> root3 = new TreeItem<>("root");
+        TreeItem<String> rootItem5 = new TreeItem<>("Rel. Mot. Cadastrados");
+        TreeItem<String> rootItem6 = new TreeItem<>("Quant. Veiculos");
 
         root.getChildren().add(rootItem1);
         root.getChildren().add(rootItem2);
@@ -79,47 +102,7 @@ public class TelaPrincipalController implements Initializable {
         root3.getChildren().add(rootItem5);
         root3.getChildren().add(rootItem6);
 
-        root4.getChildren().add(rootItem7);
-        root4.getChildren().add(rootItem8);
-
-        t_view.setRoot(root);
-        t_view.setShowRoot(false);
-        t_view1.setRoot(root2);
-        t_view1.setShowRoot(false);
-        t_view2.setRoot(root3);
-        t_view2.setShowRoot(false);
-        t_view3.setRoot(root4);
-        t_view3.setShowRoot(false);
 
 
-        t_view.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
-            @Override
-            public void changed(ObservableValue<? extends TreeItem<String>> ov, TreeItem<String> t, TreeItem<String> tl) {
-                System.out.println(tl);
-                if (tl.getValue() == "Veículos Ativos") {
-                    l_tipo.setText("Veículos Ativos");
-                } else {
-                    l_tipo.setText("Veículos Inativos");
-                }
-            }
-        });
-        t_view1.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
-            @Override
-            public void changed(ObservableValue<? extends TreeItem<String>> ov, TreeItem<String> t, TreeItem<String> tl) {
-                System.out.println(tl.getValue());
-            }
-        });
-        t_view2.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
-            @Override
-            public void changed(ObservableValue<? extends TreeItem<String>> ov, TreeItem<String> t, TreeItem<String> tl) {
-                System.out.println(tl.getValue());
-            }
-        });
-        t_view3.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
-            @Override
-            public void changed(ObservableValue<? extends TreeItem<String>> ov, TreeItem<String> t, TreeItem<String> tl) {
-                System.out.println(tl.getValue());
-            }
-        });
     }
 }

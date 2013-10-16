@@ -21,7 +21,7 @@ public class TatuLoc extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("TelaPrincipal.fxml"));
         
         Scene scene = new Scene(root);
-        stage.initStyle(StageStyle.TRANSPARENT);      
+//        stage.initStyle(StageStyle.TRANSPARENT);      
         stage.setScene(scene);
         stage.show();
     }

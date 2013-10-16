@@ -10,36 +10,36 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="528.0" prefWidth="864.0" style="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="tatuloc.TelaPrincipalController">
+<AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="854.0" style="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="tatuloc.TelaPrincipalController">
   <children>
-    <Accordion layoutX="12.0" layoutY="43.0" prefHeight="249.0">
+    <Accordion layoutX="12.0" prefHeight="249.0" AnchorPane.bottomAnchor="188.0" AnchorPane.topAnchor="43.0">
       <expandedPane>
-        <TitledPane fx:id="x1" animated="false" prefHeight="176.0" prefWidth="140.0" text="Veículos">
+        <TitledPane fx:id="x2" animated="false" minWidth="136.0" prefHeight="175.0" prefWidth="140.0" text="Cadastro">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="128.0">
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
               <children>
-                <TreeView id="t_view2" fx:id="t_view" layoutX="0.0" layoutY="0.0" prefHeight="157.0" prefWidth="136.0" />
+                <TreeView id="t_view" fx:id="tv_cadastro" layoutX="0.0" prefHeight="157.0" prefWidth="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
               </children>
             </AnchorPane>
           </content>
         </TitledPane>
       </expandedPane>
       <panes>
-        <TitledPane fx:id="x2" animated="false" minWidth="136.0" prefHeight="175.0" prefWidth="140.0" text="Cadastro">
+        <fx:reference source="x2" />
+        <TitledPane fx:id="x1" animated="false" prefHeight="176.0" prefWidth="140.0" text="Veículos">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="128.0">
               <children>
-                <TreeView id="t_view" fx:id="t_view3" layoutX="0.0" layoutY="0.0" prefHeight="157.0" prefWidth="136.0" />
+                <TreeView id="t_view2" fx:id="tv_veiculos" layoutX="0.0" prefHeight="157.0" prefWidth="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
               </children>
             </AnchorPane>
           </content>
         </TitledPane>
-        <fx:reference source="x1" />
         <TitledPane animated="false" expanded="false" prefHeight="206.00009999999747" text="Motoristas">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="136.0">
               <children>
-                <TreeView id="t_view2" fx:id="t_view1" layoutX="0.0" layoutY="0.0" prefHeight="157.0" prefWidth="136.0" />
+                <TreeView id="t_view2" fx:id="tv_motoristas" layoutX="0.0" prefHeight="157.0" prefWidth="136.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0" />
               </children>
             </AnchorPane>
           </content>
@@ -48,52 +48,53 @@
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="214.0" prefWidth="136.0">
               <children>
-                <TreeView fx:id="t_view2" layoutX="0.0" layoutY="0.0" prefHeight="155.0" prefWidth="136.0" />
+                <TreeView id="t_view2" fx:id="tv_relatorios" layoutX="0.0" prefHeight="155.0" prefWidth="136.0" AnchorPane.bottomAnchor="2.0" AnchorPane.topAnchor="0.0" />
               </children>
             </AnchorPane>
           </content>
         </TitledPane>
       </panes>
     </Accordion>
-    <Pane layoutX="-7.0" layoutY="496.0" prefHeight="31.999900000002526" prefWidth="873.0" style="-fx-background-color:linear-gradient(to bottom,Black,grey)" />
-    <Pane layoutX="12.0" layoutY="305.0" prefHeight="143.0" prefWidth="140.0" style="-fx-background-color:grey">
+    <Pane prefHeight="15.0" prefWidth="854.0" style="-fx-background-color:linear-gradient(to bottom,Black,grey)" AnchorPane.bottomAnchor="-6.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Pane layoutX="12.0" prefHeight="143.0" prefWidth="140.0" style="-fx-background-color:grey" AnchorPane.bottomAnchor="32.0">
       <effect>
         <Bloom />
       </effect>
     </Pane>
-    <Line endX="100.0" endY="-34.0" layoutX="622.0" layoutY="77.0" startX="100.0" startY="373.0" />
-    <Line endX="-102.0" endY="374.0" layoutX="262.0" layoutY="76.0" startX="-102.0" startY="-33.0" />
-    <MenuBar layoutX="0.0" layoutY="0.0" prefHeight="32.0" prefWidth="864.0">
+    <Pane prefHeight="15.0" prefWidth="854.0" rotate="180.0" style="-fx-background-color:linear-gradient(to bottom,Black,grey)" AnchorPane.bottomAnchor="9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+    <Label fx:id="l_tipo" alignment="CENTER" layoutX="170.0" layoutY="45.0" prefHeight="32.0" prefWidth="118.0" text="" textAlignment="LEFT" textOverrun="ELLIPSIS" wrapText="false">
+      <font>
+        <Font size="12.0" />
+      </font>
+    </Label>
+    <AnchorPane prefHeight="404.0" prefWidth="118.0" style="-fx-background-color: white" AnchorPane.bottomAnchor="34.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="43.0">
+      <effect>
+        <DropShadow />
+      </effect>
+    </AnchorPane>
+    <MenuBar layoutY="0.0" prefWidth="854.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <menus>
-        <Menu mnemonicParsing="false" text="Arquivo">
+        <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" text="Maximizar" />
-            <MenuItem mnemonicParsing="false" text="Minimizar" />
-            <MenuItem mnemonicParsing="false" text="Sair" />
+            <MenuItem mnemonicParsing="false" text="Close" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Editar">
+        <Menu mnemonicParsing="false" text="Edit">
           <items>
             <MenuItem mnemonicParsing="false" text="Delete" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Opções">
+        <Menu mnemonicParsing="false" text="Help">
           <items>
             <MenuItem mnemonicParsing="false" text="About" />
           </items>
         </Menu>
       </menus>
     </MenuBar>
-    <Pane layoutX="-7.0" layoutY="462.0" prefHeight="34.0" prefWidth="873.0" rotate="180.0" style="-fx-background-color:linear-gradient(to bottom,Black,grey)" />
-    <Pane layoutX="184.0" layoutY="71.0" prefHeight="360.0" prefWidth="517.0" style="-fx-background-color:white">
+    <StackPane id="b_concluir" fx:id="stackpane" layoutX="163.0" layoutY="44.0" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color: white">
       <effect>
         <DropShadow />
       </effect>
-    </Pane>
-    <Label fx:id="l_tipo" alignment="CENTER" layoutX="170.0" layoutY="45.0" prefHeight="32.0" prefWidth="118.0" text="" textAlignment="LEFT" textOverrun="ELLIPSIS" wrapText="false">
-      <font>
-        <Font size="12.0" />
-      </font>
-    </Label>
+    </StackPane>
   </children>
 </AnchorPane>
