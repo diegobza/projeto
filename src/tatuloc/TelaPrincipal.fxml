@@ -62,7 +62,7 @@
         <Font size="12.0" />
       </font>
     </Label>
-    <AnchorPane prefHeight="404.0" prefWidth="118.0" style="-fx-background-color: white" AnchorPane.bottomAnchor="34.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="43.0">
+    <AnchorPane prefHeight="404.0" prefWidth="118.0" style="-fx-background-color: white" AnchorPane.bottomAnchor="33.0" AnchorPane.rightAnchor="13.0" AnchorPane.topAnchor="44.0">
       <effect>
         <DropShadow />
       </effect>
@@ -91,6 +91,11 @@
         <DropShadow />
       </effect>
     </StackPane>
-    <Button layoutX="17.0" layoutY="309.0" mnemonicParsing="false" prefHeight="130.0" prefWidth="130.0" style=" -fx-background-radius: 70" text="Button" />
+    <ImageView fitHeight="140.0" fitWidth="144.0" layoutX="9.0" layoutY="307.0" opacity="1.0" pickOnBounds="true" preserveRatio="false">
+      <image>
+        <Image url="@../../../../../Pictures/download%20(1).jpg" />
+      </image>
+    </ImageView>
+    <Button disable="false" focusTraversable="true" layoutX="12.0" layoutY="307.0" mnemonicParsing="false" opacity="0.52" prefHeight="140.0" prefWidth="140.0" style=" -fx-background-radius: 70" text="" visible="true" />
   </children>
 </AnchorPane>

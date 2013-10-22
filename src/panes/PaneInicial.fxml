@@ -4,6 +4,15 @@
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color: lightgrey" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="panes.PaneInicialController" />
+<AnchorPane id="AnchorPane" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color: lightgrey" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="panes.PaneInicialController">
+  <children>
+    <ImageView fitHeight="404.0" fitWidth="547.0" pickOnBounds="true" preserveRatio="false" smooth="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <image>
+        <Image url="file:/D:/Nova%20pasta/Papeis%20de%20Parede/1680x1050_HD_Wallpaper_119_zixpkcom.jpg" />
+      </image>
+    </ImageView>
+  </children>
+</AnchorPane>

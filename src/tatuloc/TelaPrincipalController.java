@@ -52,19 +52,13 @@ public class TelaPrincipalController implements Initializable {
     private StackPane stackpane;
     private Node pane_incial;
     private Node pane_cadveiculo;
+    private Node pane_vizuveiculos;
 
     private void mudar() {
     }
     // Connection c = ConnectionFactory.getConnection();  
 
-    @FXML
-    private void cadastrarse(ActionEvent event) {
-        String SQL = "insert into veiculo(placa)values(?)";
-
-
-        Consulta.executeUpdate(SQL, t_placa.getText());
-
-    }
+   
 
     private void initMenuCadastro() {
         final String CAD_VEIC = "Cad. Veículo";
@@ -87,35 +81,60 @@ public class TelaPrincipalController implements Initializable {
                     case CAD_VEIC:
                         int indice = stackpane.getChildren().indexOf(pane_cadveiculo);
                         stackpane.getChildren().get(indice).toBack();
+                        System.out.println("indice: " + indice);
                 }
             }
         });
     }
+private void initMenuVizu() {
+        final String VIZ_VEIC = "Viz. Veículos Ativos";
 
+        TreeItem<String> ti_root1 = new TreeItem<>("root");
+        TreeItem<String> ti_vizVeic = new TreeItem<>(VIZ_VEIC);
+        TreeItem<String> ti_vizMot = new TreeItem<>("Viz. Motorista");
+
+        ti_root1.getChildren().add(ti_vizVeic);
+        ti_root1.getChildren().add(ti_vizMot);
+
+        tv_veiculos.setRoot(ti_root1);
+        tv_veiculos.setShowRoot(false);
+
+        tv_veiculos.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
+            @Override
+            public void changed(ObservableValue<? extends TreeItem<String>> ov, TreeItem<String> t, TreeItem<String> tl) {
+                System.out.println("Menu: " + tl.getValue());
+                switch (tl.getValue()) {
+                    case VIZ_VEIC:
+                        int indice = stackpane.getChildren().indexOf(pane_vizuveiculos);
+                        stackpane.getChildren().get(indice).toBack();
+                         System.out.println("indice: " + indice);
+                }
+            }
+        });
+    }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
+            pane_incial = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneVizuVeiculos.fxml"));
             pane_incial = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneCadVeiculo.fxml"));
             pane_cadveiculo = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneInicial.fxml"));
+            pane_vizuveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneInicial.fxml"));
             stackpane.getChildren().add(pane_incial);
             stackpane.getChildren().add(pane_cadveiculo);
+            stackpane.getChildren().add(pane_vizuveiculos);
         } catch (IOException ex) {
             System.out.println("Erro ao carregar os Panes");
         }
         initMenuCadastro();
+        initMenuVizu();
 
-        TreeItem<String> root = new TreeItem<>("root");
-        TreeItem<String> rootItem1 = new TreeItem<>("Veículos Ativos");
-        TreeItem<String> rootItem2 = new TreeItem<>("Veículos Inativos");
+       
         TreeItem<String> root2 = new TreeItem<>("root");
         TreeItem<String> rootItem3 = new TreeItem<>("Motoristas Operando");
         TreeItem<String> rootItem4 = new TreeItem<>("Motoristas Disponiveis");
         TreeItem<String> root3 = new TreeItem<>("root");
         TreeItem<String> rootItem5 = new TreeItem<>("Rel. Mot. Cadastrados");
         TreeItem<String> rootItem6 = new TreeItem<>("Quant. Veiculos");
-
-        root.getChildren().add(rootItem1);
-        root.getChildren().add(rootItem2);
 
         root2.getChildren().add(rootItem3);
         root2.getChildren().add(rootItem4);
