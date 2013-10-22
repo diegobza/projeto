@@ -53,6 +53,7 @@ public class TelaPrincipalController implements Initializable {
     private Node pane_incial;
     private Node pane_cadveiculo;
     private Node pane_vizuveiculos;
+    private Node pane_todosveiculos;
 
     private void mudar() {
     }
@@ -80,7 +81,7 @@ public class TelaPrincipalController implements Initializable {
                 switch (tl.getValue()) {
                     case CAD_VEIC:
                         int indice = stackpane.getChildren().indexOf(pane_cadveiculo);
-                        stackpane.getChildren().get(indice).toBack();
+                        stackpane.getChildren().get(indice).toFront();
                         System.out.println("indice: " + indice);
                 }
             }
@@ -88,15 +89,15 @@ public class TelaPrincipalController implements Initializable {
     }
 private void initMenuVizu() {
         final String VIZ_VEIC = "Viz. Veículos Ativos";
+        final String TOD_VEIC = "Tod. os Veiculos";
+        TreeItem<String> ti_root = new TreeItem<>("root");
+        TreeItem<String> ti_vizVeicA = new TreeItem<>(VIZ_VEIC);
+        TreeItem<String> ti_vizTodVeic = new TreeItem<>(TOD_VEIC);
 
-        TreeItem<String> ti_root1 = new TreeItem<>("root");
-        TreeItem<String> ti_vizVeic = new TreeItem<>(VIZ_VEIC);
-        TreeItem<String> ti_vizMot = new TreeItem<>("Viz. Motorista");
+        ti_root.getChildren().add(ti_vizVeicA);
+        ti_root.getChildren().add(ti_vizTodVeic);
 
-        ti_root1.getChildren().add(ti_vizVeic);
-        ti_root1.getChildren().add(ti_vizMot);
-
-        tv_veiculos.setRoot(ti_root1);
+        tv_veiculos.setRoot(ti_root);
         tv_veiculos.setShowRoot(false);
 
         tv_veiculos.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
@@ -106,22 +107,29 @@ private void initMenuVizu() {
                 switch (tl.getValue()) {
                     case VIZ_VEIC:
                         int indice = stackpane.getChildren().indexOf(pane_vizuveiculos);
-                        stackpane.getChildren().get(indice).toBack();
-                         System.out.println("indice: " + indice);
+                        stackpane.getChildren().get(indice).toFront();
+                        System.out.println("indice: " + indice);
+                   /* case TOD_VEIC:
+                        indice = stackpane.getChildren().indexOf(pane_todosveiculos);
+                        stackpane.getChildren().get(indice).toFront();
+                        System.out.println("indice: " + indice);*/
                 }
             }
         });
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {
-            pane_incial = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneVizuVeiculos.fxml"));
-            pane_incial = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneCadVeiculo.fxml"));
-            pane_cadveiculo = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneInicial.fxml"));
-            pane_vizuveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneInicial.fxml"));
-            stackpane.getChildren().add(pane_incial);
-            stackpane.getChildren().add(pane_cadveiculo);
+        try {           
+            pane_incial = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneInicial.fxml"));
+            pane_cadveiculo = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneCadVeiculo.fxml"));         
+            pane_vizuveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneVizuVeiculos.fxml"));                      
+            pane_todosveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneTodVeiculos.fxml"));
+            stackpane.getChildren().add(pane_todosveiculos); 
             stackpane.getChildren().add(pane_vizuveiculos);
+            stackpane.getChildren().add(pane_cadveiculo);
+            stackpane.getChildren().add(pane_incial);
+            
+            
         } catch (IOException ex) {
             System.out.println("Erro ao carregar os Panes");
         }

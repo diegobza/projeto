@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color:aqua" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="panes.PaneTodVeiculosController">
+  <children>
+    <Label alignment="CENTER" layoutX="0.0" layoutY="40.0" prefWidth="547.0" text="Todos os Veículos Cadastrados" textFill="BLACK" />
+    <Separator layoutX="14.0" layoutY="65.0" prefWidth="519.0" />
+    <TableView layoutX="14.0" layoutY="79.0" prefHeight="299.0" prefWidth="519.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="Column X" />
+        <TableColumn prefWidth="75.0" text="Column X" />
+      </columns>
+    </TableView>
+  </children>
+</AnchorPane>

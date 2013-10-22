@@ -91,11 +91,6 @@
         <DropShadow />
       </effect>
     </StackPane>
-    <ImageView fitHeight="140.0" fitWidth="144.0" layoutX="9.0" layoutY="307.0" opacity="1.0" pickOnBounds="true" preserveRatio="false">
-      <image>
-        <Image url="@../../../../../Pictures/download%20(1).jpg" />
-      </image>
-    </ImageView>
-    <Button disable="false" focusTraversable="true" layoutX="12.0" layoutY="307.0" mnemonicParsing="false" opacity="0.52" prefHeight="140.0" prefWidth="140.0" style=" -fx-background-radius: 70" text="" visible="true" />
+    <Button disable="false" focusTraversable="true" layoutX="12.0" mnemonicParsing="false" opacity="1.0" prefHeight="140.0" prefWidth="140.0" style=" -fx-background-radius: 70" text="" visible="true" AnchorPane.bottomAnchor="33.0" />
   </children>
 </AnchorPane>
