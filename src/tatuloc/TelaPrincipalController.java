@@ -7,11 +7,8 @@ package tatuloc;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -22,6 +19,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
 
 /**
@@ -50,6 +49,10 @@ public class TelaPrincipalController implements Initializable {
     private TreeView<String> tv_relatorios;
     @FXML
     private StackPane stackpane;
+    @FXML
+    private Button bt_mapa;
+    @FXML
+    private ImageView iview;
     private Node pane_incial;
     private Node pane_cadveiculo;
     private Node pane_vizuveiculos;
@@ -58,8 +61,6 @@ public class TelaPrincipalController implements Initializable {
     private void mudar() {
     }
     // Connection c = ConnectionFactory.getConnection();  
-
-   
 
     private void initMenuCadastro() {
         final String CAD_VEIC = "Cad. Veículo";
@@ -87,7 +88,8 @@ public class TelaPrincipalController implements Initializable {
             }
         });
     }
-private void initMenuVizu() {
+
+    private void initMenuVizu() {
         final String VIZ_VEIC = "Viz. Veículos Ativos";
         final String TOD_VEIC = "Tod. os Veiculos";
         TreeItem<String> ti_root = new TreeItem<>("root");
@@ -109,34 +111,42 @@ private void initMenuVizu() {
                         int indice = stackpane.getChildren().indexOf(pane_vizuveiculos);
                         stackpane.getChildren().get(indice).toFront();
                         System.out.println("indice: " + indice);
-                   /* case TOD_VEIC:
-                        indice = stackpane.getChildren().indexOf(pane_todosveiculos);
-                        stackpane.getChildren().get(indice).toFront();
-                        System.out.println("indice: " + indice);*/
+                    /* case TOD_VEIC:
+                     indice = stackpane.getChildren().indexOf(pane_todosveiculos);
+                     stackpane.getChildren().get(indice).toFront();
+                     System.out.println("indice: " + indice);*/
                 }
             }
         });
     }
+
+    @FXML
+    private void abrirMapa() {
+        System.out.println("abriu");
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        try {           
+        iview.setImage(new Image(getClass().getResourceAsStream("/imagens/map2.jpg"), 140, 140, false, true));
+
+        try {
             pane_incial = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneInicial.fxml"));
-            pane_cadveiculo = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneCadVeiculo.fxml"));         
-            pane_vizuveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneVizuVeiculos.fxml"));                      
+            pane_cadveiculo = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneCadVeiculo.fxml"));
+            pane_vizuveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneVizuVeiculos.fxml"));
             pane_todosveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneTodVeiculos.fxml"));
-            stackpane.getChildren().add(pane_todosveiculos); 
+            stackpane.getChildren().add(pane_todosveiculos);
             stackpane.getChildren().add(pane_vizuveiculos);
             stackpane.getChildren().add(pane_cadveiculo);
             stackpane.getChildren().add(pane_incial);
-            
-            
+
+
         } catch (IOException ex) {
             System.out.println("Erro ao carregar os Panes");
         }
         initMenuCadastro();
         initMenuVizu();
 
-       
+
         TreeItem<String> root2 = new TreeItem<>("root");
         TreeItem<String> rootItem3 = new TreeItem<>("Motoristas Operando");
         TreeItem<String> rootItem4 = new TreeItem<>("Motoristas Disponiveis");

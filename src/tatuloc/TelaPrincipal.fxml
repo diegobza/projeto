@@ -12,6 +12,11 @@
 
 <AnchorPane id="AnchorPane" prefHeight="480.0" prefWidth="854.0" style="" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="tatuloc.TelaPrincipalController">
   <children>
+    <ImageView id="b_concluir" fx:id="iview" fitHeight="139.0" fitWidth="139.0" layoutX="14.0" layoutY="308.0" pickOnBounds="true" preserveRatio="true">
+      <effect>
+        <DropShadow />
+      </effect>
+    </ImageView>
     <Accordion layoutX="12.0" prefHeight="249.0" AnchorPane.bottomAnchor="188.0" AnchorPane.topAnchor="43.0">
       <expandedPane>
         <TitledPane fx:id="x2" animated="false" minWidth="136.0" prefHeight="175.0" prefWidth="140.0" text="Cadastro">
@@ -91,6 +96,6 @@
         <DropShadow />
       </effect>
     </StackPane>
-    <Button disable="false" focusTraversable="true" layoutX="12.0" mnemonicParsing="false" opacity="1.0" prefHeight="140.0" prefWidth="140.0" style=" -fx-background-radius: 70" text="" visible="true" AnchorPane.bottomAnchor="33.0" />
+    <Button id="b_concluir" fx:id="bt_mapa" disable="false" focusTraversable="true" layoutX="12.0" mnemonicParsing="false" onAction="#abrirMapa" opacity="0.0" prefHeight="140.0" prefWidth="140.0" style="-fx-background-radius: 0" text="" visible="true" AnchorPane.bottomAnchor="32.0" />
   </children>
 </AnchorPane>
