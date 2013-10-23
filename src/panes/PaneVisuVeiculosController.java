@@ -18,7 +18,7 @@ import tatuloc.Consulta;
  *
  * @author Dikson
  */
-public class PaneVizuVeiculosController implements Initializable {
+public class PaneVisuVeiculosController implements Initializable {
     @FXML
     private ListView lv_inativo;
     @FXML 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color:aqua&#10;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="panes.PaneVisuVeiculosController">
+  <children>
+    <Pane layoutX="20.0" layoutY="14.0" prefHeight="32.0" prefWidth="508.0" style="-fx-background-color:white">
+      <effect>
+        <DropShadow />
+      </effect>
+    </Pane>
+    <Label alignment="CENTER" layoutX="20.0" layoutY="14.0" prefHeight="32.0" prefWidth="508.0" text="Todos os Veículos" textFill="BLACK" />
+    <Button layoutX="155.0" layoutY="276.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="229.0" text="Atualizar" />
+    <TableView layoutX="20.0" layoutY="58.0" prefHeight="200.0" prefWidth="508.0">
+      <columns>
+        <TableColumn prefWidth="75.0" text="ID" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="172.0" text="Placa" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="87.0" text="Situação" />
+      </columns>
+    </TableView>
+  </children>
+</AnchorPane>

@@ -55,7 +55,7 @@ public class TelaPrincipalController implements Initializable {
     private ImageView iview;
     private Node pane_incial;
     private Node pane_cadveiculo;
-    private Node pane_vizuveiculos;
+    private Node pane_visuveiculos;
     private Node pane_todosveiculos;
 
     private void mudar() {
@@ -89,15 +89,15 @@ public class TelaPrincipalController implements Initializable {
         });
     }
 
-    private void initMenuVizu() {
-        final String VIZ_VEIC = "Viz. Veículos Ativos";
+    private void initMenuVisu() {
+        final String VIS_VEIC = "Vis. Veículos Ativos";
         final String TOD_VEIC = "Tod. os Veiculos";
         TreeItem<String> ti_root = new TreeItem<>("root");
-        TreeItem<String> ti_vizVeicA = new TreeItem<>(VIZ_VEIC);
-        TreeItem<String> ti_vizTodVeic = new TreeItem<>(TOD_VEIC);
+        TreeItem<String> ti_visVeicA = new TreeItem<>(VIS_VEIC);
+        TreeItem<String> ti_visTodVeic = new TreeItem<>(TOD_VEIC);
 
-        ti_root.getChildren().add(ti_vizVeicA);
-        ti_root.getChildren().add(ti_vizTodVeic);
+        ti_root.getChildren().add(ti_visVeicA);
+        ti_root.getChildren().add(ti_visTodVeic);
 
         tv_veiculos.setRoot(ti_root);
         tv_veiculos.setShowRoot(false);
@@ -107,8 +107,8 @@ public class TelaPrincipalController implements Initializable {
             public void changed(ObservableValue<? extends TreeItem<String>> ov, TreeItem<String> t, TreeItem<String> tl) {
                 System.out.println("Menu: " + tl.getValue());
                 switch (tl.getValue()) {
-                    case VIZ_VEIC:
-                        int indice = stackpane.getChildren().indexOf(pane_vizuveiculos);
+                    case VIS_VEIC:
+                        int indice = stackpane.getChildren().indexOf(pane_visuveiculos);
                         stackpane.getChildren().get(indice).toFront();
                         System.out.println("indice: " + indice);
                     /* case TOD_VEIC:
@@ -127,15 +127,15 @@ public class TelaPrincipalController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        iview.setImage(new Image(getClass().getResourceAsStream("/imagens/map2.jpg"), 140, 140, false, true));
+        iview.setImage(new Image(getClass().getResourceAsStream("/imagens/map.jpg"), 147, 147,true, true));
 
         try {
             pane_incial = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneInicial.fxml"));
             pane_cadveiculo = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneCadVeiculo.fxml"));
-            pane_vizuveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneVizuVeiculos.fxml"));
+            pane_visuveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneVisuVeiculos.fxml"));
             pane_todosveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneTodVeiculos.fxml"));
             stackpane.getChildren().add(pane_todosveiculos);
-            stackpane.getChildren().add(pane_vizuveiculos);
+            stackpane.getChildren().add(pane_visuveiculos);
             stackpane.getChildren().add(pane_cadveiculo);
             stackpane.getChildren().add(pane_incial);
 
@@ -144,7 +144,7 @@ public class TelaPrincipalController implements Initializable {
             System.out.println("Erro ao carregar os Panes");
         }
         initMenuCadastro();
-        initMenuVizu();
+        initMenuVisu();
 
 
         TreeItem<String> root2 = new TreeItem<>("root");
