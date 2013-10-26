@@ -22,6 +22,10 @@ public class Veiculo {
         this.situacao = new SimpleStringProperty(vsituacao);
     }
 
+    public Veiculo() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getid() {
         return id.get();
     }
