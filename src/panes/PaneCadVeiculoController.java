@@ -33,13 +33,17 @@ public class PaneCadVeiculoController implements Initializable {
 
     @FXML
     public void cadastrarveic(ActionEvent event){
-        String SQL1 = "SELECT * FROM veiculo WHERE placa=?";
-
-        ResultSet rs = Consulta.executeQuery(SQL1, tf_placa.getText());
-
+        String SQL = "SELECT * FROM veiculo WHERE placa=?";
+        String SQL1 = "SELECT MAX(id) as uid FROM veiculo";
+        ResultSet rs = Consulta.executeQuery(SQL, tf_placa.getText());
+        ResultSet rs1 = Consulta.executeQuery(SQL1);
         String placa = null,id = null;
-        
+        int uid=0;
         try {
+            if (rs1.next()){
+            uid = rs1.getInt("uid");
+            }
+            
             if (rs.next()) {
                 placa = rs.getString("placa");
                 id = rs.getString("id");
@@ -47,15 +51,14 @@ public class PaneCadVeiculoController implements Initializable {
                                               
            }
              if (tf_placa.getText().equals(placa)) {
-                       l_msg.setText("Placa Já Cadastrada!");
+                       l_msg.setText("Veículo Já Cadastrado!");
                        tf_codigo.setText(id);
                 } else {
-                  String SQL = "insert into veiculo(placa)values(?)";
-                  Consulta.executeUpdate(SQL, tf_placa.getText());      
+                  String SQL2 = "insert into veiculo(placa)values(?)";
+                  Consulta.executeUpdate(SQL2, tf_placa.getText());      
                   l_msg.setText("Veículo Cadastrado com Sucesso!");
-                  ResultSet rs2 = Consulta.executeQuery(SQL1, tf_placa.getText());
-                  String id2 = rs2.getString("id");
-                  tf_codigo.setText(id2);
+                                    
+                  tf_codigo.setText(Integer.toString(uid+1));
              } 
         } catch(SQLException ex) {            
         }
