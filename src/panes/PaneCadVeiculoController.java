@@ -54,7 +54,7 @@ public class PaneCadVeiculoController implements Initializable {
                        l_msg.setText("Veículo Já Cadastrado!");
                        tf_codigo.setText(id);
                 } else {
-                  String SQL2 = "insert into veiculo(placa)values(?)";
+                  String SQL2 = "insert into veiculo(placa,situacao)values(?,'Inativo')";
                   Consulta.executeUpdate(SQL2, tf_placa.getText());      
                   l_msg.setText("Veículo Cadastrado com Sucesso!");
                                     

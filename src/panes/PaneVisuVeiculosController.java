@@ -39,9 +39,11 @@ public class PaneVisuVeiculosController implements Initializable {
     private TableColumn tc_placa;
     @FXML
     private TableColumn tc_situacao;
+   // private ObservableList data;
 
     @FXML
     public void c_veiculos(ActionEvent event) {
+       
         /*
         String SQL0 ="SELECT MAX(id) as total FROM veiculo";
         ResultSet rs0 = Consulta.executeQuery(SQL0);
@@ -68,31 +70,31 @@ public class PaneVisuVeiculosController implements Initializable {
                 System.out.println(bdplaca);
                 bdsituacao = rs.getString("situacao");
                 System.out.println(bdsituacao);
-                Veiculo entry = new Veiculo(bdid, bdplaca, bdsituacao);
-                data.add(entry);
-
+                Veiculo Entrada = new Veiculo(bdid, bdplaca, bdsituacao);
+                data.add(Entrada);
 
             }
         } catch (SQLException ex) {
             System.out.println("Erro na consulta dos veículos.");
         }
-
-        tc_id.setCellValueFactory(
-                new PropertyValueFactory<Veiculo, String>("ID"));
-        tc_placa.setCellValueFactory(
-                new PropertyValueFactory<Veiculo, String>("Placa"));
-        tc_situacao.setCellValueFactory(
-                new PropertyValueFactory<Veiculo, String>("Situacao"));
+       tc_id.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("ID"));       
+       tc_placa.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("Placa"));
+       tc_situacao.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("Situação"));
         
-//        tb_visu.setFocusModel((TableView.TableViewFocusModel) data);
+        //tb_visu.getColumns().addAll(data);            
+      tb_visu.setItems(data); 
+        
+        
         }
-    //}
+ 
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+      
+        
         // TODO
     }
 }
