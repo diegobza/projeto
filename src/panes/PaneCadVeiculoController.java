@@ -22,55 +22,66 @@ import tatuloc.Consulta;
  * @author Dikson
  */
 public class PaneCadVeiculoController implements Initializable {
+
     @FXML
     private Label l_msg;
     @FXML
-    private TextField tf_placa;
+    private TextField tf_placalet;
+    @FXML
+    private TextField tf_placanum;
     @FXML
     private TextField tf_codigo;
     @FXML
     private Button b_concluir;
 
     @FXML
-    public void cadastrarveic(ActionEvent event){
+    public void cadastrarveic(ActionEvent event) {
         String SQL = "SELECT * FROM veiculo WHERE placa=?";
-        String SQL1 = "SELECT MAX(id) as uid FROM veiculo";
-        ResultSet rs = Consulta.executeQuery(SQL, tf_placa.getText());
-        ResultSet rs1 = Consulta.executeQuery(SQL1);
-        String placa = null,id = null;
-        int uid=0;
+        // String SQL1 = "SELECT MAX(id) as uid FROM veiculo";
+        String placa = ((tf_placalet.getText())+"-"+(tf_placanum.getText()));
+        ResultSet rs = Consulta.executeQuery(SQL, placa);
+        //ResultSet rs1 = Consulta.executeQuery(SQL1);
+        String pla = null, id = null;
+        int uid = 0;
         try {
-            if (rs1.next()){
-            uid = rs1.getInt("uid");
-            }
-            
+            //   if (rs1.next()){
+            // uid = rs1.getInt("uid");
+            // }
+
             if (rs.next()) {
-                placa = rs.getString("placa");
+                pla = rs.getString("placa");
                 id = rs.getString("id");
-                System.out.println(placa);
-                                              
-           }
-             if (tf_placa.getText().equals(placa)) {
-                       l_msg.setText("Veículo Já Cadastrado!");
-                       tf_codigo.setText(id);
-                } else {
-                  String SQL2 = "insert into veiculo(placa,situacao)values(?,'Inativo')";
-                  Consulta.executeUpdate(SQL2, tf_placa.getText());      
-                  l_msg.setText("Veículo Cadastrado com Sucesso!");
-                                    
-                  tf_codigo.setText(Integer.toString(uid+1));
-             } 
-        } catch(SQLException ex) {            
+                System.out.println(pla);
+
+            }
+            if (placa.equals(pla)) {
+                l_msg.setText("Veículo Já Cadastrado!");
+                tf_codigo.setText(id);
+            } else {
+                String SQL2 = "insert into veiculo(placa,situacao)values(?,'I')";
+                Consulta.executeUpdate(SQL2, placa);
+                l_msg.setText("Veículo Cadastrado com Sucesso!");
+                String SQL5 = "SELECT id FROM veiculo WHERE placa=?";
+                ResultSet rs5 = Consulta.executeQuery(SQL5, placa);
+                if (rs5.next()) {
+                    uid = rs5.getInt("id");
+                    System.out.println(Integer.toString(uid));
+                    tf_codigo.setText(Integer.toString(uid));
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println("Erro 12345");
         }
-        
-       
-    
+
+
+
     }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 }

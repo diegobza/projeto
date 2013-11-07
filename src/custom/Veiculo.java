@@ -26,27 +26,27 @@ public class Veiculo {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public String getid() {
+    public String getId() {
         return id.get();
     }
 
-    public void setid(String vid) {
+    public void setId(String vid) {
         id.set(vid);
     }
 
-    public String getplaca() {
+    public String getPlaca() {
         return placa.get();
     }
 
-    public void setplaca(String vplaca) {
+    public void setPlaca(String vplaca) {
         placa.set(vplaca);
     }
 
-    public String getsituacao() {
+    public String getSituacao() {
         return situacao.get();
     }
 
-    public void setstiaucao(String vsituacao) {
+    public void setSituacao(String vsituacao) {
         situacao.set(vsituacao);
     }
 }

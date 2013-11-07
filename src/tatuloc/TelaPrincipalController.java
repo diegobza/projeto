@@ -57,7 +57,7 @@ public class TelaPrincipalController implements Initializable {
     private Node pane_cadveiculo;
     private Node pane_visuveiculos;
     private Node pane_todosveiculos;
-
+    private Node pane_detalhe;
     private void mudar() {
     }
     // Connection c = ConnectionFactory.getConnection();  
@@ -119,6 +119,7 @@ public class TelaPrincipalController implements Initializable {
             }
         });
     }
+    
 
     @FXML
     private void abrirMapa() {
@@ -134,6 +135,8 @@ public class TelaPrincipalController implements Initializable {
             pane_cadveiculo = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneCadVeiculo.fxml"));
             pane_visuveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneVisuVeiculos.fxml"));
             pane_todosveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneTodVeiculos.fxml"));
+            pane_detalhe = (Node) FXMLLoader.load(getClass().getResource("/panes/Panevisuindividual.fxml"));
+            stackpane.getChildren().add(pane_detalhe);
             stackpane.getChildren().add(pane_todosveiculos);
             stackpane.getChildren().add(pane_visuveiculos);
             stackpane.getChildren().add(pane_cadveiculo);

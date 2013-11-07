@@ -5,6 +5,7 @@
 package panes;
 
 import custom.Veiculo;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -15,11 +16,15 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
 import tatuloc.Consulta;
 
 /**
@@ -32,6 +37,8 @@ public class PaneVisuVeiculosController implements Initializable {
     @FXML
     private Button b_atualizar;
     @FXML
+    private Button b_detalhe;
+    @FXML
     private TableView tb_visu;
     @FXML
     private TableColumn tc_id;
@@ -39,7 +46,14 @@ public class PaneVisuVeiculosController implements Initializable {
     private TableColumn tc_placa;
     @FXML
     private TableColumn tc_situacao;
+    
    // private ObservableList data;
+    @FXML
+    public void panedetalhe(){                    
+                       
+                }
+           
+    
 
     @FXML
     public void c_veiculos(ActionEvent event) {
@@ -77,9 +91,9 @@ public class PaneVisuVeiculosController implements Initializable {
         } catch (SQLException ex) {
             System.out.println("Erro na consulta dos veículos.");
         }
-       tc_id.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("ID"));       
-       tc_placa.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("Placa"));
-       tc_situacao.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("Situação"));
+       tc_id.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("id"));       
+       tc_placa.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("placa"));
+       tc_situacao.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("situacao"));
         
         //tb_visu.getColumns().addAll(data);            
       tb_visu.setItems(data); 
@@ -92,8 +106,7 @@ public class PaneVisuVeiculosController implements Initializable {
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
-      
+    public void initialize(URL url, ResourceBundle rb) {  
         
         // TODO
     }
