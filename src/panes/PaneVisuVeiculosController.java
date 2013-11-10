@@ -26,6 +26,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import tatuloc.Consulta;
+import tatuloc.TelaPrincipalController;
 
 /**
  * FXML Controller class
@@ -48,12 +49,14 @@ public class PaneVisuVeiculosController implements Initializable {
     private TableColumn tc_situacao;
     
    // private ObservableList data;
+  
     @FXML
-    public void panedetalhe(){                    
-                       
+    public void panedetalhe(){     
+        TelaPrincipalController objeto = new TelaPrincipalController();
+                    objeto.mudar();   
                 }
            
-    
+
 
     @FXML
     public void c_veiculos(ActionEvent event) {

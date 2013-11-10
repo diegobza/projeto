@@ -58,7 +58,11 @@ public class TelaPrincipalController implements Initializable {
     private Node pane_visuveiculos;
     private Node pane_todosveiculos;
     private Node pane_detalhe;
-    private void mudar() {
+    
+    public void mudar() {
+        int indice = stackpane.getChildren().indexOf(pane_detalhe);
+        stackpane.getChildren().get(indice).toFront();
+        System.out.println("indice: " + indice);
     }
     // Connection c = ConnectionFactory.getConnection();  
 
@@ -146,8 +150,10 @@ public class TelaPrincipalController implements Initializable {
         } catch (IOException ex) {
             System.out.println("Erro ao carregar os Panes");
         }
+        mudar();
         initMenuCadastro();
         initMenuVisu();
+        
 
 
         TreeItem<String> root2 = new TreeItem<>("root");

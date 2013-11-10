@@ -32,33 +32,33 @@
         <DropShadow />
       </effect>
     </Pane>
-    <Button layoutX="235.0" layoutY="235.0" mnemonicParsing="false" prefHeight="38.5" prefWidth="76.0" text="Atualizar" textFill="BLACK" />
+    <Button fx:id="b_atualiza" layoutX="235.0" layoutY="235.0" mnemonicParsing="false" onAction="#mostrarinf" prefHeight="38.5" prefWidth="76.0" text="Atualizar" textFill="BLACK" />
     <Label layoutX="14.0" layoutY="275.0" text="Velocidade:" textFill="BLACK" />
     <Label layoutX="86.0" layoutY="334.0" prefWidth="26.0" text="Lat.:" textFill="BLACK" />
     <Label layoutX="288.0" layoutY="306.0" text="Marcha do Veículo:" textFill="BLACK" />
-    <Label layoutX="400.0" layoutY="306.0" prefWidth="101.0" text="3ª" textFill="BLACK" />
+    <Label fx:id="l_marcha" layoutX="400.0" layoutY="306.0" prefWidth="101.0" text="3ª" textFill="BLACK" />
     <Label layoutX="288.0" layoutY="334.0" text="Cinto de Segurança:" textFill="BLACK" />
-    <Label layoutX="400.0" layoutY="334.0" prefWidth="101.0" text="Sim" textFill="BLACK" />
+    <Label fx:id="l_cinto" layoutX="400.0" layoutY="334.0" prefWidth="101.0" text="Sim" textFill="BLACK" />
     <Label layoutX="14.0" layoutY="334.0" text="Cordenadas -" textFill="BLACK" />
-    <Label layoutX="79.0" layoutY="275.0" prefWidth="25.999900000002526" text="180" textFill="BLACK" />
+    <Label fx:id="l_velocidade" layoutX="79.0" layoutY="275.0" prefWidth="25.999900000002526" text="180" textFill="BLACK" />
     <Label layoutX="14.0" layoutY="362.0" text="Data:" textFill="BLACK" />
-    <Label layoutX="47.0" layoutY="362.0" prefWidth="66.0" text="07/11/2013" textFill="BLACK" />
+    <Label fx:id="l_data" layoutX="47.0" layoutY="362.0" prefWidth="132.0" text="07/11/2013 18:45:31" textFill="BLACK" />
     <Line endX="-100.0" endY="216.0" layoutX="373.0" layoutY="174.0" startX="-100.0" startY="113.0" />
-    <Label alignment="CENTER_RIGHT" layoutX="111.0" layoutY="362.0" prefWidth="42.0" text="-  Hora:" textFill="BLACK" />
-    <Label layoutX="160.0" layoutY="362.0" prefWidth="42.0" text="17:24" textFill="BLACK" />
     <Label layoutX="14.0" layoutY="306.0" text="RPM:" textFill="BLACK" />
-    <Label layoutX="48.0" layoutY="306.0" text="1100" textFill="BLACK" />
+    <Label fx:id="l_rpm" layoutX="48.0" layoutY="306.0" text="1100" textFill="BLACK" />
     <Label layoutX="101.0" layoutY="275.0" text="KM/h" textFill="BLACK" />
-    <Button layoutX="13.0" layoutY="235.0" mnemonicParsing="false" prefWidth="86.0" text="Velocidade" textFill="BLACK" />
-    <Button layoutX="118.0" layoutY="235.0" mnemonicParsing="false" prefWidth="86.0" text="RPM" textFill="BLACK" />
-    <Button layoutX="341.0" layoutY="235.0" mnemonicParsing="false" prefWidth="86.0" text="KM" textFill="BLACK" />
+    <Button id="b_km" fx:id="b_velocidade" layoutX="13.0" layoutY="235.0" mnemonicParsing="false" prefWidth="86.0" text="Velocidade" textFill="BLACK" />
+    <Button fx:id="b_rpm" layoutX="118.0" layoutY="235.0" mnemonicParsing="false" prefWidth="86.0" text="RPM" textFill="BLACK" />
+    <Button fx:id="b_km" layoutX="341.0" layoutY="235.0" mnemonicParsing="false" prefWidth="86.0" text="KM" textFill="BLACK" />
     <Label layoutX="288.0" layoutY="362.0" text="Combustivel:" textFill="BLACK" />
-    <Label layoutX="366.0" layoutY="362.0" prefWidth="30.0" text="70%" textFill="BLACK" />
+    <Label fx:id="l_combustivel" layoutX="366.0" layoutY="362.0" prefWidth="30.0" text="70%" textFill="BLACK" />
     <Button layoutX="447.0" layoutY="235.0" mnemonicParsing="false" prefWidth="86.0" text="" />
     <Label layoutX="161.0" layoutY="334.0" text="Long.:" textFill="BLACK" />
-    <Label layoutX="111.0" layoutY="334.0" prefWidth="32.0" text="85" textFill="BLACK" />
-    <Label layoutX="197.0" layoutY="334.0" prefWidth="26.0" text="67" textFill="BLACK" />
+    <Label fx:id="l_lat" layoutX="112.0" layoutY="334.0" prefWidth="32.0" text="85" textFill="BLACK" />
+    <Label fx:id="l_long" layoutX="197.0" layoutY="334.0" prefWidth="26.0" text="67" textFill="BLACK" />
     <Label layoutX="344.0" layoutY="275.0" text="KM:" textFill="BLACK" />
-    <Label layoutX="370.0" layoutY="275.0" prefWidth="57.0" text="15000" textFill="BLACK" />
+    <Label fx:id="l_km" layoutX="370.0" layoutY="275.0" prefWidth="57.0" text="15000" textFill="BLACK" />
+    <TextField fx:id="tf_id" layoutX="467.0" layoutY="284.0" onAction="#mostrarinf" prefWidth="46.0" />
+    <Label alignment="CENTER" layoutX="467.0" layoutY="267.0" prefWidth="46.0" text="ID:" />
   </children>
 </AnchorPane>

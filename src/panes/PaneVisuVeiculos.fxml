@@ -16,7 +16,7 @@
     </Pane>
     <Pane prefHeight="324.0" prefWidth="104.0" style="-fx-background-color:lightgrey;&#10;-fx-background-radius:10" AnchorPane.bottomAnchor="22.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="58.0">
       <children>
-        <Button fx:id="b_detalhe" layoutX="6.0" layoutY="205.0" minHeight="16.0" mnemonicParsing="false" prefHeight="22.0" prefWidth="93.0" text="Detalhes" textFill="BLACK" />
+        <Button fx:id="b_detalhe" layoutX="6.0" layoutY="205.0" minHeight="16.0" mnemonicParsing="false" onAction="#panedetalhe" prefHeight="22.0" prefWidth="93.0" text="Detalhes" textFill="BLACK" />
         <Button fx:id="b_atualizar" layoutX="6.0" layoutY="173.0" minHeight="16.0" mnemonicParsing="false" onAction="#c_veiculos" prefHeight="22.0" prefWidth="93.0" text="Atualizar" textFill="BLACK" />
       </children>
       <effect>
