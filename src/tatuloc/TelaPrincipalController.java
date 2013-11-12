@@ -22,6 +22,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import panes.PaneVisuVeiculosController;
 
 /**
  *
@@ -53,18 +54,26 @@ public class TelaPrincipalController implements Initializable {
     private Button bt_mapa;
     @FXML
     private ImageView iview;
+
+    private FXMLLoader loader_inicial;
+    private FXMLLoader loader_cadveiculo;
+    private FXMLLoader loader_visuveiculos;
+    private FXMLLoader loader_todosveiculos;
+    private FXMLLoader loader_detalhe;
     private Node pane_incial;
     private Node pane_cadveiculo;
     private Node pane_visuveiculos;
     private Node pane_todosveiculos;
     private Node pane_detalhe;
-    
-    public void mudar() {
-        int indice = stackpane.getChildren().indexOf(pane_detalhe);
-        stackpane.getChildren().get(indice).toFront();
-        System.out.println("indice: " + indice);
+
+    public void mudarPane(String pane) {
+        switch (pane) {
+            case "DETALHE":
+                int indice = stackpane.getChildren().indexOf(pane_detalhe);
+                stackpane.getChildren().get(indice).toFront();
+                System.out.println("indice: " + indice);
+        }
     }
-    // Connection c = ConnectionFactory.getConnection();  
 
     private void initMenuCadastro() {
         final String CAD_VEIC = "Cad. Veículo";
@@ -86,8 +95,9 @@ public class TelaPrincipalController implements Initializable {
                 switch (tl.getValue()) {
                     case CAD_VEIC:
                         int indice = stackpane.getChildren().indexOf(pane_cadveiculo);
+                        System.out.println("Indice1: " + indice);
                         stackpane.getChildren().get(indice).toFront();
-                        System.out.println("indice: " + indice);
+                        System.out.println("Indice2: " + indice);
                 }
             }
         });
@@ -123,38 +133,43 @@ public class TelaPrincipalController implements Initializable {
             }
         });
     }
-    
 
     @FXML
     private void abrirMapa() {
         System.out.println("abriu");
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        iview.setImage(new Image(getClass().getResourceAsStream("/imagens/map.jpg"), 147, 147,true, true));
+        iview.setImage(new Image(getClass().getResourceAsStream("/imagens/map.jpg"), 147, 147, true, true));
 
         try {
-            pane_incial = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneInicial.fxml"));
-            pane_cadveiculo = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneCadVeiculo.fxml"));
-            pane_visuveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneVisuVeiculos.fxml"));
-            pane_todosveiculos = (Node) FXMLLoader.load(getClass().getResource("/panes/PaneTodVeiculos.fxml"));
-            pane_detalhe = (Node) FXMLLoader.load(getClass().getResource("/panes/Panevisuindividual.fxml"));
+            loader_inicial = new FXMLLoader(getClass().getResource("/panes/PaneInicial.fxml"));
+            loader_cadveiculo = new FXMLLoader(getClass().getResource("/panes/PaneCadVeiculo.fxml"));
+            loader_visuveiculos = new FXMLLoader(getClass().getResource("/panes/PaneVisuVeiculos.fxml"));
+            loader_todosveiculos = new FXMLLoader(getClass().getResource("/panes/PaneTodVeiculos.fxml"));
+            loader_detalhe = new FXMLLoader(getClass().getResource("/panes/Panevisuindividual.fxml"));
+            pane_incial = (Node) loader_inicial.load();
+            pane_cadveiculo = (Node) loader_cadveiculo.load();
+            pane_visuveiculos = (Node) loader_visuveiculos.load();
+            pane_todosveiculos = (Node) loader_todosveiculos.load();
+            pane_detalhe = (Node) loader_detalhe.load();
+            
             stackpane.getChildren().add(pane_detalhe);
             stackpane.getChildren().add(pane_todosveiculos);
             stackpane.getChildren().add(pane_visuveiculos);
             stackpane.getChildren().add(pane_cadveiculo);
             stackpane.getChildren().add(pane_incial);
-
-
+            
+            
+            ((PaneVisuVeiculosController) loader_visuveiculos.getController()).setMain(this);
         } catch (IOException ex) {
             System.out.println("Erro ao carregar os Panes");
         }
-        mudar();
+
+        mudarPane("INICIAL");
         initMenuCadastro();
         initMenuVisu();
-        
-
 
         TreeItem<String> root2 = new TreeItem<>("root");
         TreeItem<String> rootItem3 = new TreeItem<>("Motoristas Operando");
@@ -168,8 +183,6 @@ public class TelaPrincipalController implements Initializable {
 
         root3.getChildren().add(rootItem5);
         root3.getChildren().add(rootItem6);
-
-
 
     }
 }

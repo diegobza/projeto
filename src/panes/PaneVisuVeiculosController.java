@@ -48,38 +48,40 @@ public class PaneVisuVeiculosController implements Initializable {
     @FXML
     private TableColumn tc_situacao;
     
-   // private ObservableList data;
-  
-    @FXML
-    public void panedetalhe(){     
-        TelaPrincipalController objeto = new TelaPrincipalController();
-                    objeto.mudar();   
-                }
-           
+    private TelaPrincipalController tp;
 
+   // private ObservableList data;
+    @FXML
+    public void panedetalhe() {
+        tp.mudarPane("DETALHE");
+    }
+    
+    public void setMain(TelaPrincipalController tp) {
+        this.tp = tp;
+    }
 
     @FXML
     public void c_veiculos(ActionEvent event) {
-       
+
         /*
-        String SQL0 ="SELECT MAX(id) as total FROM veiculo";
-        ResultSet rs0 = Consulta.executeQuery(SQL0);
-        String qtd="";
-        try {
-           if(rs0.next())
-            qtd = rs0.getString("total");
-            System.out.println(qtd);
-        } catch (SQLException ex) {            
-        }
-        System.out.println(qtd);
-        for (int cont=1;cont <= Integer.parseInt(qtd);cont++){
-        */
+         String SQL0 ="SELECT MAX(id) as total FROM veiculo";
+         ResultSet rs0 = Consulta.executeQuery(SQL0);
+         String qtd="";
+         try {
+         if(rs0.next())
+         qtd = rs0.getString("total");
+         System.out.println(qtd);
+         } catch (SQLException ex) {            
+         }
+         System.out.println(qtd);
+         for (int cont=1;cont <= Integer.parseInt(qtd);cont++){
+         */
         String SQL = "SELECT * FROM veiculo"; // where id="+cont;
         ResultSet rs = Consulta.executeQuery(SQL);
         String bdid = null, bdplaca = null, bdsituacao = null;
         final ObservableList<Veiculo> data = FXCollections.observableArrayList();
         try {
-            
+
             while (rs.next()) {
                 bdid = rs.getString("id");
                 System.out.println(bdid);
@@ -94,23 +96,21 @@ public class PaneVisuVeiculosController implements Initializable {
         } catch (SQLException ex) {
             System.out.println("Erro na consulta dos veículos.");
         }
-       tc_id.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("id"));       
-       tc_placa.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("placa"));
-       tc_situacao.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("situacao"));
-        
+        tc_id.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("id"));
+        tc_placa.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("placa"));
+        tc_situacao.setCellValueFactory(new PropertyValueFactory<Veiculo, String>("situacao"));
+
         //tb_visu.getColumns().addAll(data);            
-      tb_visu.setItems(data); 
-        
-        
-        }
- 
+        tb_visu.setItems(data);
+
+    }
 
     /**
      * Initializes the controller class.
      */
     @Override
-    public void initialize(URL url, ResourceBundle rb) {  
-        
+    public void initialize(URL url, ResourceBundle rb) {
+
         // TODO
     }
 }

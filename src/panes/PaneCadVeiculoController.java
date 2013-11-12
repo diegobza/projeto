@@ -38,16 +38,12 @@ public class PaneCadVeiculoController implements Initializable {
     public void cadastrarveic(ActionEvent event) {
         String SQL = "SELECT * FROM veiculo WHERE placa=?";
         // String SQL1 = "SELECT MAX(id) as uid FROM veiculo";
-        String placa = ((tf_placalet.getText())+"-"+(tf_placanum.getText()));
+        String placa = ((tf_placalet.getText()) + (tf_placanum.getText()));
         ResultSet rs = Consulta.executeQuery(SQL, placa);
         //ResultSet rs1 = Consulta.executeQuery(SQL1);
         String pla = null, id = null;
         int uid = 0;
         try {
-            //   if (rs1.next()){
-            // uid = rs1.getInt("uid");
-            // }
-
             if (rs.next()) {
                 pla = rs.getString("placa");
                 id = rs.getString("id");
@@ -72,8 +68,6 @@ public class PaneCadVeiculoController implements Initializable {
         } catch (SQLException ex) {
             System.out.println("Erro 12345");
         }
-
-
 
     }
 
