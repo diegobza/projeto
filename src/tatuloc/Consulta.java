@@ -30,7 +30,7 @@ public class Consulta {
         if (conn == null) {
             try {
                 conn = DriverManager.getConnection("jdbc:mysql://localhost/obdii?"
-                        + "user=root&password=14159265");
+                        + "user=root&password=dikson");
 
             } catch (SQLException ex) {
                 System.out.println("Erro ao ser conectar ao MySQL.");
@@ -62,7 +62,7 @@ public class Consulta {
         if (conn == null) {
             try {
                 conn = DriverManager.getConnection("jdbc:mysql://localhost/obdii?"
-                        + "user=root&password=14159265");
+                        + "user=root&password=dikson");
 
             } catch (SQLException ex) {
                 System.out.println("Erro ao ser conectar ao MySQL.");
