@@ -30,6 +30,9 @@ import panes.PaneVisuVeiculosController;
  */
 public class TelaPrincipalController implements Initializable {
 
+    final String CAD_VEIC = "Cad. Veículo";
+    final String VIS_VEIC = "Vis. Veículos Ativos";
+
     @FXML
     private Label l_tipo;
     @FXML
@@ -67,16 +70,29 @@ public class TelaPrincipalController implements Initializable {
     private Node pane_detalhe;
 
     public void mudarPane(String pane) {
+        int indice;
         switch (pane) {
+            case CAD_VEIC:
+                indice = stackpane.getChildren().indexOf(pane_cadveiculo);
+                System.out.println("Indice1: " + indice);
+                stackpane.getChildren().get(indice).toFront();
+                System.out.println("Indice2: " + indice);
+                break;
+
+            case VIS_VEIC:
+                indice = stackpane.getChildren().indexOf(pane_visuveiculos);
+                stackpane.getChildren().get(indice).toFront();
+                System.out.println("indice: " + indice);
+                break;
+                
             case "DETALHE":
-                int indice = stackpane.getChildren().indexOf(pane_detalhe);
+                indice = stackpane.getChildren().indexOf(pane_detalhe);
                 stackpane.getChildren().get(indice).toFront();
                 System.out.println("indice: " + indice);
         }
     }
 
     private void initMenuCadastro() {
-        final String CAD_VEIC = "Cad. Veículo";
 
         TreeItem<String> ti_root = new TreeItem<>("root");
         TreeItem<String> ti_cadVeic = new TreeItem<>(CAD_VEIC);
@@ -87,6 +103,26 @@ public class TelaPrincipalController implements Initializable {
 
         tv_cadastro.setRoot(ti_root);
         tv_cadastro.setShowRoot(false);
+
+        tv_cadastro.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
+                if (t1) {
+                    String item = tv_cadastro.getSelectionModel().getSelectedItem().getValue();
+                    mudarPane(item);
+                }
+            }
+        });
+
+        tv_veiculos.focusedProperty().addListener(new ChangeListener<Boolean>() {
+            @Override
+            public void changed(ObservableValue<? extends Boolean> ov, Boolean t, Boolean t1) {
+                if (t1) {
+                    String item = tv_veiculos.getSelectionModel().getSelectedItem().getValue();
+                    mudarPane(item);
+                }
+            }
+        });
 
         tv_cadastro.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<TreeItem<String>>() {
             @Override
@@ -104,7 +140,6 @@ public class TelaPrincipalController implements Initializable {
     }
 
     private void initMenuVisu() {
-        final String VIS_VEIC = "Vis. Veículos Ativos";
         final String TOD_VEIC = "Tod. os Veiculos";
         TreeItem<String> ti_root = new TreeItem<>("root");
         TreeItem<String> ti_visVeicA = new TreeItem<>(VIS_VEIC);
@@ -154,14 +189,13 @@ public class TelaPrincipalController implements Initializable {
             pane_visuveiculos = (Node) loader_visuveiculos.load();
             pane_todosveiculos = (Node) loader_todosveiculos.load();
             pane_detalhe = (Node) loader_detalhe.load();
-            
+
             stackpane.getChildren().add(pane_detalhe);
             stackpane.getChildren().add(pane_todosveiculos);
             stackpane.getChildren().add(pane_visuveiculos);
             stackpane.getChildren().add(pane_cadveiculo);
             stackpane.getChildren().add(pane_incial);
-            
-            
+
             ((PaneVisuVeiculosController) loader_visuveiculos.getController()).setMain(this);
         } catch (IOException ex) {
             System.out.println("Erro ao carregar os Panes");
