@@ -7,12 +7,17 @@ package tatuloc;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
 import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -22,6 +27,9 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import panes.PaneVisuVeiculosController;
 
 /**
@@ -84,7 +92,7 @@ public class TelaPrincipalController implements Initializable {
                 stackpane.getChildren().get(indice).toFront();
                 System.out.println("indice: " + indice);
                 break;
-                
+
             case "DETALHE":
                 indice = stackpane.getChildren().indexOf(pane_detalhe);
                 stackpane.getChildren().get(indice).toFront();
@@ -172,6 +180,18 @@ public class TelaPrincipalController implements Initializable {
     @FXML
     private void abrirMapa() {
         System.out.println("abriu");
+
+        Parent root;
+
+        try {
+            root = FXMLLoader.load(getClass().getResource("/maps/Map.fxml"));
+            Scene scene = new Scene(root);
+            Stage dialog = new Stage();
+            dialog.setScene(scene);
+            dialog.show();
+        } catch (IOException ex) {
+            System.out.println("Erro ao abrir o mapa.");
+        }
     }
 
     @Override
