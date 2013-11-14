@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" disable="false" focusTraversable="false" opacity="1.0" prefHeight="404.0" prefWidth="547.0" style="" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="panes.PaneMarcaController">
+  <children>
+    <Pane layoutX="0.0" layoutY="0.0" opacity="0.64" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color: white" />
+    <Pane disable="false" focusTraversable="false" layoutX="103.0" layoutY="112.0" opacity="1.0" prefHeight="181.0" prefWidth="341.0" style="-fx-background-color: aqua;&#10;-fx-background-radius:30&#10;">
+      <children>
+        <TextField fx:id="tf_marca" layoutX="71.0" layoutY="69.0" prefWidth="200.0" />
+        <Label alignment="CENTER" layoutX="71.0" layoutY="47.0" prefWidth="200.0" text="Marca" textFill="BLACK" />
+        <Button fx:id="b_incluir" layoutX="71.0" layoutY="118.0" mnemonicParsing="false" onAction="#cadmarca" prefWidth="87.0" text="Incluir" textFill="BLACK" />
+        <Button fx:id="b_cancelar" layoutX="184.0" layoutY="118.0" mnemonicParsing="false" onAction="#cancelmarca" prefWidth="87.0" text="Cancelar" textFill="BLACK" />
+        <Label fx:id="l_msg" alignment="CENTER" layoutX="71.0" layoutY="95.0" prefWidth="200.0" text="" />
+      </children>
+      <effect>
+        <DropShadow />
+      </effect>
+    </Pane>
+  </children>
+</AnchorPane>

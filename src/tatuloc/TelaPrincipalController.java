@@ -30,6 +30,8 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import panes.PaneCadVeiculoController;
+import panes.PaneMarcaController;
 import panes.PaneVisuVeiculosController;
 
 /**
@@ -71,11 +73,13 @@ public class TelaPrincipalController implements Initializable {
     private FXMLLoader loader_visuveiculos;
     private FXMLLoader loader_todosveiculos;
     private FXMLLoader loader_detalhe;
+    private FXMLLoader loader_marca;
     private Node pane_incial;
     private Node pane_cadveiculo;
     private Node pane_visuveiculos;
     private Node pane_todosveiculos;
     private Node pane_detalhe;
+    private Node pane_marca;
 
     public void mudarPane(String pane) {
         int indice;
@@ -85,6 +89,12 @@ public class TelaPrincipalController implements Initializable {
                 System.out.println("Indice1: " + indice);
                 stackpane.getChildren().get(indice).toFront();
                 System.out.println("Indice2: " + indice);
+                break;
+            
+            case "MARCA":
+                indice = stackpane.getChildren().indexOf(pane_marca);
+                stackpane.getChildren().get(indice).toFront();
+                System.out.println("indice: " + indice);
                 break;
 
             case VIS_VEIC:
@@ -204,12 +214,15 @@ public class TelaPrincipalController implements Initializable {
             loader_visuveiculos = new FXMLLoader(getClass().getResource("/panes/PaneVisuVeiculos.fxml"));
             loader_todosveiculos = new FXMLLoader(getClass().getResource("/panes/PaneTodVeiculos.fxml"));
             loader_detalhe = new FXMLLoader(getClass().getResource("/panes/Panevisuindividual.fxml"));
+            loader_marca = new FXMLLoader (getClass().getResource("/panes/PaneMarca.fxml"));
             pane_incial = (Node) loader_inicial.load();
             pane_cadveiculo = (Node) loader_cadveiculo.load();
             pane_visuveiculos = (Node) loader_visuveiculos.load();
             pane_todosveiculos = (Node) loader_todosveiculos.load();
             pane_detalhe = (Node) loader_detalhe.load();
-
+            pane_marca = (Node) loader_marca.load();
+            
+            stackpane.getChildren().add(pane_marca);
             stackpane.getChildren().add(pane_detalhe);
             stackpane.getChildren().add(pane_todosveiculos);
             stackpane.getChildren().add(pane_visuveiculos);
@@ -217,6 +230,8 @@ public class TelaPrincipalController implements Initializable {
             stackpane.getChildren().add(pane_incial);
 
             ((PaneVisuVeiculosController) loader_visuveiculos.getController()).setMain(this);
+            ((PaneCadVeiculoController) loader_cadveiculo.getController()).setMain(this);
+            ((PaneMarcaController) loader_marca.getController()).setMain(this);
         } catch (IOException ex) {
             System.out.println("Erro ao carregar os Panes");
         }

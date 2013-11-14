@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.chart.LineChart;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -21,6 +22,8 @@ import tatuloc.Consulta;
  * @author Dikson
  */
 public class PanevisuindividualController implements Initializable {
+    @FXML
+    private LineChart grafico;
     @FXML
     private TextField tf_id;
     @FXML
@@ -79,6 +82,7 @@ public class PanevisuindividualController implements Initializable {
     
     
     }
+    
     /**
      * Initializes the controller class.
      */

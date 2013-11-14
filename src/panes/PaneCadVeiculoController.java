@@ -15,7 +15,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXML;
 import tatuloc.Consulta;
-
+import javafx.scene.control.ComboBox;
+import tatuloc.TelaPrincipalController;
 /**
  * FXML Controller class
  *
@@ -33,6 +34,23 @@ public class PaneCadVeiculoController implements Initializable {
     private TextField tf_codigo;
     @FXML
     private Button b_concluir;
+    @FXML
+    private Button b_nmarca;
+    @FXML
+    private ComboBox cb_marca;
+    
+    private TelaPrincipalController tp;
+    
+    @FXML
+    public void cadmarca(){
+    
+        tp.mudarPane("MARCA");
+    }
+    
+    public void setMain(TelaPrincipalController tp) {
+        this.tp = tp;
+    }
+    
 
     @FXML
     public void cadastrarveic(ActionEvent event) {

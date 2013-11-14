@@ -14,7 +14,7 @@
   <children>
     <Pane layoutX="14.0" layoutY="14.0" prefHeight="213.0" prefWidth="519.0" style="-fx-background-color: white">
       <children>
-        <LineChart id="LineChartNxN" layoutX="-2.0" layoutY="0.0" prefHeight="213.0" prefWidth="519.0">
+        <LineChart id="LineChartNxN" fx:id="grafico" layoutX="-2.0" layoutY="0.0" prefHeight="213.0" prefWidth="519.0">
           <xAxis>
             <NumberAxis side="BOTTOM" />
           </xAxis>
@@ -40,7 +40,7 @@
     <Label layoutX="288.0" layoutY="334.0" text="Cinto de Segurança:" textFill="BLACK" />
     <Label fx:id="l_cinto" layoutX="400.0" layoutY="334.0" prefWidth="101.0" text="Sim" textFill="BLACK" />
     <Label layoutX="14.0" layoutY="334.0" text="Cordenadas -" textFill="BLACK" />
-    <Label fx:id="l_velocidade" layoutX="79.0" layoutY="275.0" prefWidth="25.999900000002526" text="180" textFill="BLACK" />
+    <Label fx:id="l_velocidade" layoutX="79.0" layoutY="276.0" prefWidth="25.999900000002526" text="180" textFill="BLACK" />
     <Label layoutX="14.0" layoutY="362.0" text="Data:" textFill="BLACK" />
     <Label fx:id="l_data" layoutX="47.0" layoutY="362.0" prefWidth="132.0" text="07/11/2013 18:45:31" textFill="BLACK" />
     <Line endX="-100.0" endY="216.0" layoutX="373.0" layoutY="174.0" startX="-100.0" startY="113.0" />
