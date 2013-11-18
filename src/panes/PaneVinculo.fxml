@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color:lightblue" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="panes.PaneVinculoController">
+  <children>
+    <Pane layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="519.0" style="-fx-background-color:white">
+      <children>
+        <Label alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="32.0" prefWidth="519.0" text="Vincular Veículo x Motorista" textFill="BLACK">
+          <font>
+            <Font size="15.0" />
+          </font>
+        </Label>
+      </children>
+      <effect>
+        <DropShadow />
+      </effect>
+    </Pane>
+    <ChoiceBox layoutX="14.0" layoutY="139.0" prefWidth="136.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <Label alignment="CENTER" layoutX="14.0" layoutY="77.0" prefWidth="259.9999000000025" text="Motorista" textFill="BLACK" />
+    <Label alignment="CENTER" layoutX="275.0" layoutY="77.0" prefWidth="258.5" text="Veículo" textFill="BLACK" />
+    <ChoiceBox layoutX="397.0" layoutY="139.0" prefWidth="136.0">
+      <items>
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Item 1" />
+          <String fx:value="Item 2" />
+          <String fx:value="Item 3" />
+        </FXCollections>
+      </items>
+    </ChoiceBox>
+    <Line endX="-100.0" endY="273.0" layoutX="374.0" layoutY="63.0" startX="-100.0" strokeWidth="0.5" />
+    <TextField layoutX="14.0" layoutY="200.0" prefWidth="200.0" />
+    <TextField layoutX="14.0" layoutY="255.0" prefWidth="200.0" />
+    <TextField layoutX="334.0" layoutY="195.0" prefWidth="200.0" />
+    <TextField layoutX="334.0" layoutY="250.0" prefWidth="200.0" />
+    <Button layoutX="214.0" layoutY="347.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="118.9998779296875" text="Confirmar" textFill="BLACK" />
+    <Label layoutX="14.0" layoutY="177.0" prefHeight="21.0" prefWidth="200.0" text="Nome" textFill="BLACK" />
+    <Label layoutX="14.0" layoutY="234.0" prefHeight="21.0" prefWidth="200.0" text="Telefone" textFill="BLACK" />
+    <Label layoutX="334.0" layoutY="172.0" prefHeight="21.0" prefWidth="200.0" text="Marca" textFill="BLACK" />
+    <Label layoutX="334.0" layoutY="229.0" prefHeight="21.0" prefWidth="200.0" text="Modelo" textFill="BLACK" />
+    <Label layoutX="14.0" layoutY="119.0" prefWidth="136.0" text="ID" textFill="BLACK" />
+    <Label layoutX="398.0" layoutY="119.0" prefWidth="135.0" text="ID" textFill="BLACK" />
+    <Line endX="100.0" layoutX="144.0" layoutY="101.0" startX="-100.0" strokeWidth="0.5" />
+    <Line endX="100.0" layoutX="405.0" layoutY="102.0" startX="-100.0" strokeWidth="0.5" />
+  </children>
+</AnchorPane>

@@ -37,14 +37,22 @@ public class PaneCadVeiculoController implements Initializable {
     @FXML
     private Button b_nmarca;
     @FXML
+    private Button b_nmodelo;
+    @FXML
     private ComboBox cb_marca;
+    @FXML
+    private ComboBox cb_modelo;
     
     private TelaPrincipalController tp;
     
     @FXML
     public void cadmarca(){
-    
         tp.mudarPane("MARCA");
+    }
+    
+    @FXML
+    public void cadmodelo(){
+        tp.mudarPane("MODELO");
     }
     
     public void setMain(TelaPrincipalController tp) {

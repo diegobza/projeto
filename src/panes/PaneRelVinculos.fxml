@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="404.0" prefWidth="547.0" style="-fx-background-color:lightblue" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="panes.PaneRelVinculosController">
+  <children>
+    <Pane layoutX="14.0" layoutY="14.0" prefHeight="32.0" prefWidth="519.0" style="-fx-background-color:white">
+      <children>
+        <Label alignment="CENTER" layoutX="0.0" layoutY="0.0" prefHeight="32.0" prefWidth="519.0" text="Relatorio de Vinculos" textFill="BLACK">
+          <font>
+            <Font size="15.0" />
+          </font>
+        </Label>
+      </children>
+      <effect>
+        <DropShadow />
+      </effect>
+    </Pane>
+  </children>
+</AnchorPane>
